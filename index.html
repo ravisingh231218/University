@@ -1,0 +1,460 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Submission</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        *{
+            padding: 0%;
+            margin: 0%;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(to bottom, #ff9a9e, #fad0c4, #fad0c4, #fbc2eb, #a18cd1);
+          
+            margin: 0;
+            padding: 0;
+        
+        }
+
+         
+        .logo {
+            width: 300px;
+            height: auto;
+        }
+
+        .line-container {
+            position: absolute;
+            width: 80%;
+            height: 180px;
+            top: 420px;
+            left: 11cm;
+            text-align: center;
+            display: none;
+        }
+
+        .moving-dot {
+            fill: red;
+            animation: moveAlongPath 5s ease-in-out forwards;
+        }
+
+
+        .side-container {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 50px;
+        }
+
+        .side-box {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: center;
+            gap: 200px;
+            margin-bottom: 20px;
+        }
+
+        .box {
+          
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            width: 180px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: #ff7777;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3), inset -5px -5px 10px rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+        }
+
+        .submit-btn {
+            background: #28a745;
+            color: white;
+            padding: 15px 25px;
+            font-size: 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: block;
+            margin: auto;
+            position: relative;
+            top: -2cm;
+        }
+
+       .side-box.right {
+    position: absolute;
+    top: 10px; 
+    right: 20px; 
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.side-box.right img {
+    width: 150px;  
+    height: auto;  
+    transform: translateX(-1.5cm);
+
+}
+        .side-box.left {
+            position: relative;
+            right: -3cm;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .box img {
+            width: 100px;
+            height: auto;
+            max-width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: #218838;
+        }
+
+        .text-section p {
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+
+        .explosion {
+            position: absolute;
+            font-size: 30px;
+            color: yellow;
+            animation: explode 1s linear infinite;
+        }
+
+        @keyframes explode {
+            0% {
+                opacity: 1;
+                transform: scale(1) translate(0, 0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(2) translate(var(--x), var(--y));
+            }
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .upload-icon {
+            font-size: 30px;
+            cursor: pointer;
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .uploaded {
+            color: green;
+            font-weight: bold;
+        }
+
+      
+        .balloon, .star {
+            position: absolute;
+            opacity: 0.8;
+        }
+
+        .balloon {
+            width: 20px;
+            height: 30px;
+            background: red;
+            border-radius: 50%;
+            animation: rise 3s linear infinite;
+        }
+
+          .star {
+    font-size: 30px;
+    animation: twinkle 2s infinite, colorChange 7s infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 1;
+        text-shadow: 0 0 15px rgba(255, 215, 0, 1), 0 0 30px rgba(255, 165, 0, 1);
+    }
+    50% {
+        opacity: 0.5;
+        text-shadow: 0 0 10px rgba(255, 99, 71, 1), 0 0 25px rgba(255, 140, 0, 1);
+    }
+}
+
+@keyframes colorChange {
+    0% { color: red; }
+    14% { color: orange; }
+    28% { color: yellow; }
+    42% { color: green; }
+    56% { color: blue; }
+    70% { color: indigo; }
+    84% { color: violet; }
+    100% { color: red; }
+}
+
+        @keyframes rise {
+            0% {
+                bottom: 0;
+            }
+
+            100% {
+                bottom: 100%;
+            }
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(2) translate(var(--x), var(--y));
+                opacity: 0;
+            }
+
+            @keyframes twinkle {
+                0% {
+                    opacity: 0.3;
+                }
+
+                100% {
+                    opacity: 1;
+                }
+            }
+    </style>
+    <style>
+        .main-container {
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            color: #222;
+        }
+
+        .convocation-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #d9534f;
+        }
+
+        .date-title {
+            font-size: 1.3rem;
+            font-weight: 650;
+            color: #0275d8;
+        }
+
+        .event-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #5cb85c;
+        }
+
+        .by-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #d9534f;
+        }
+
+        .name-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #292b2c;
+        }
+
+        .designation-title {
+            font-size: 0.8rem;
+            line-height: 1.2;
+            color: #292b2c;
+            font-weight: 400;
+        }
+
+        #animatedLine {
+            display: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+    #popupMessage {
+            display: none;
+            position: fixed;
+            top: calc(50% + 7cm);
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 40px;
+            font-weight: bold;
+            color: green;
+            text-shadow: 2px 2px 5px black;
+            animation: fadeIn 1s ease-in-out;
+            white-space: nowrap; 
+            padding: 10px 30px; 
+            max-width: 90vw; 
+            overflow: hidden; 
+            text-overflow: ellipsis; 
+        }
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+       
+    </style>
+</head>
+
+
+<body>
+
+    <div class="container">
+          <div class="row pt-4 ">
+            
+                <div class="col-lg-2 col-md-2 col-2">
+                    <img decoding="async" class="" src="https://cdnbbsr.s3waas.gov.in/s3978d76676f5e7918f81d28e7d092ca0d/uploads/2021/11/2021111152.jpeg" alt="approvedphoto11.11.2021" width="100%" height="130px" style="border-radius: 50%;">
+                </div>
+            
+                <div class="col-lg-8 col-md-8 col-8">
+                    <img src="https://meta-secure.com/HnbumuNursing/ContentTest/images/logo_full_Login.png" alt="Logo" style="display:inline-block;" width="100%" height="130px">
+                </div>
+           
+            <div class="col-lg-2 col-md-2 col-2">
+                 <img src="https://cdn.digitalindiacorporation.in/wp-content/themes/di-child/assets/images/digital-india.svg.gzip" alt="Logo" class="" style="display:inline-block;" width="100%" height="130px">
+            </div>
+           
+          </div>
+    </div>
+<div class="container pt-4">
+    <div class="main-container text-center">
+        <h1 class="convocation-title">7th CONVOCATION</h1>
+        <h2 class="date-title">Wednesday 26th March 2025</h2>
+        <h3 class="event-title">Degree Data Uploading On</h3>
+        <h3 class="event-title">Digilocker</h3>
+        <h4 class="by-title">By</h4>
+        <h2 class="name-title">LT GEN GURMIT SINGH</h2>
+        <h6 class="designation-title">
+            PVSM, UYSM, AVSM, VSM (RETD) <br>
+            HON'BLE GOVERNOR OF UTTARAKHAND <br>
+            &amp; CHANCELLOR OF UNIVERSITY
+        </h6>
+    </div>
+    <br>
+    <div class="box-container" id="boxContainer">
+        <div class="box" id="uploadBox">
+            <div class="title">Degree Data</div>
+            <label class="upload-icon" for="fileInput">📂</label>
+            <input type="file" id="fileInput" class="file-input">
+        </div>
+
+        
+        <svg id="animatedLine" class="line-container" width="500" height="200">
+            <path id="arcPath" d="M 100 100 Q 250 -50, 400 100" stroke="green" stroke-width="3" fill="transparent"></path>
+
+            <text id="movingFile" font-size="30">
+                📂
+                <animateMotion id="motionAnim" begin="click" dur="5s" repeatCount="1" fill="freeze" keyTimes="0; 0.3; 0.6; 1" values="0%; 30%; 60%; 100%" keySplines="0.3 0.1 0.7 1; 0.3 0.1 0.7 1; 0.3 0.1 0.7 1" calcMode="spline">
+                    <mpath href="#arcPath"></mpath>
+                </animateMotion>
+            </text>
+        </svg>
+
+        <div class="box" id="digiLockerBox">
+            <img src="./Digilocker.png" alt="DigiLocker Image">
+        </div>
+        <div class="box-container" id="popupMessage">Data Successfully Uploded On Digilocker</div>
+
+    </div>
+
+</div>
+   
+   
+    <button class="submit-btn" id="submitBtn">Upload Data</button>
+    <!-- </div> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1"></script>
+
+    <script>
+        document.getElementById("submitBtn").addEventListener("click", function () {
+            let popup = document.getElementById("popupMessage");
+            let movingDot = document.getElementById("movingFile");
+            let animatedLine = document.getElementById("animatedLine");
+            let header = document.querySelector(".header"); 
+
+            animatedLine.style.display = "block";
+            motionAnim.beginElement();
+
+            setTimeout(() => {
+                animatedLine.style.display = "none";
+                movingDot.style.display = "none";
+                popup.style.display = "block";
+                digiLockerBox.classList.add("hidden");
+                uploadBox.classList.add("hidden");
+                submitBtn.classList.add("hidden");
+                createExplosions();
+                        header.style.transform = "translateY(-2cm)";
+
+            }, 5000);
+        });
+
+        function createExplosions() {
+            for (let i = 0; i < 30; i++) {
+                //let balloon = document.createElement("div");
+                //balloon.className = "balloon";
+                //balloon.style.left = Math.random() * window.innerWidth + "px";
+                //balloon.style.bottom = "-50px";
+                //balloon.style.animationDelay = Math.random() * 2 + "s";
+                //document.body.appendChild(balloon);
+
+                let star = document.createElement("div");
+                star.className = "star";
+                star.innerHTML = "★";
+                star.style.left = Math.random() * window.innerWidth + "px";
+                star.style.top = Math.random() * window.innerHeight + "px";
+                star.style.fontSize = Math.random() * 30 + 20 + "px";
+                document.body.appendChild(star);
+            }
+
+            var end = Date.now() + (50 * 1000);
+            var colors = ['#bb0000', '#ffffff'];
+
+            (function frame() {
+                confetti({
+                    particleCount: 2,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: colors
+                });
+                confetti({
+                    particleCount: 2,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: colors
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                } else {
+                    location.reload();
+                }
+            }());
+        }
+    </script>
+</body>
+
+  </html>
