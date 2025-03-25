@@ -392,7 +392,7 @@
     <br>
    <br>
 <div class="box-container" id="boxContainer" style="margin-top: -60px; position: relative; top: -20px;">
-    <div class="box" id="uploadBox" style="margin-left: 40px;">
+    <div class="box" id="uploadBox" style="margin-left: 50px;">
             <div class="title">Degree Data</div>
             <label class="upload-icon" for="fileInput">📂</label>
             <input type="file" id="fileInput" class="file-input">
@@ -410,13 +410,27 @@
             </text>
         </svg>
 
-    <div class="box" id="digiLockerBox" style="margin-right: 40px;">
+    <div class="box" id="digiLockerBox" style="margin-right: 50px;">
             <img src="./Digilocker.png" alt="DigiLocker Image">
         </div>
-        <div class="box-container" id="popupMessage">Data Successfully Uploded On Digilocker</div>
+       <div class="box-container" id="popupMessage" 
+     style="position: fixed; 
+            bottom: 4cm; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            color: green; 
+            background: transparent; 
+            border: none; 
+            box-shadow: none; 
+            font-size: 24px; 
+            font-weight: bold; 
+            padding: 0;
+            margin: 0;">
+    Data Successfully Uploaded On Digilocker
+</div>
 
     </div>
-    <button class="submit-btn" id="submitBtn">Upload Data</button>
+<button class="submit-btn" id="submitBtn" style="margin-top: -57px;">Upload Data</button>
 
 </div>
    
