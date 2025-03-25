@@ -67,12 +67,13 @@
     
     .box-container {
         display: flex;
-        justify-content: center;
-        gap: 40px;
+        justify-content: space-between;
+        align-items: center;
         margin-bottom: 25px;
-        flex-wrap: wrap;
         position: relative;
         margin-top: 50px;
+        width: 100%;
+        padding: 0 50px;
     }
     
     .box {
@@ -89,10 +90,8 @@
         background: #ff7777;
         box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3), inset -5px -5px 10px rgba(255, 255, 255, 0.5);
         border-radius: 20px;
-        margin: 10px;
     } 
       
-    
     .submit-btn {
         background: #28a745;
         color: white;
@@ -103,7 +102,7 @@
         cursor: pointer;
         transition: 0.3s;
         display: block;
-        margin: 30px auto;
+        margin: -50px auto 30px;
         position: relative;
     }
     
@@ -268,9 +267,9 @@
     #popupMessage {
         display: none;
         position: fixed;
-        top: 50%;
+        bottom: 100px;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translateX(-50%);
         font-size: 24px;
         font-weight: bold;
         color: green;
@@ -313,10 +312,15 @@
         .submit-btn {
             font-size: 18px;
             padding: 12px 20px;
+            margin-top: -40px;
         }
         #popupMessage {
             font-size: 20px;
             padding: 8px 15px;
+            bottom: 80px;
+        }
+        .box-container {
+            padding: 0 20px;
         }
     }
     
@@ -344,90 +348,86 @@
         .submit-btn {
             font-size: 16px;
             padding: 10px 18px;
+            margin-top: -30px;
         }
         #popupMessage {
             font-size: 18px;
             white-space: normal;
             text-align: center;
             width: 90%;
+            bottom: 60px;
+        }
+        .box-container {
+            padding: 0 10px;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .box {
+            margin: 0 auto;
         }
     }
 </style>
 </head>
 
-
 <body>
-
     <div class="container">
-          <div class="row pt-4 ">
-            
-                <div class="col-lg-2 col-md-2 col-2">
-                    <img decoding="async" class="" src="https://cdnbbsr.s3waas.gov.in/s3978d76676f5e7918f81d28e7d092ca0d/uploads/2021/11/2021111152.jpeg" alt="approvedphoto11.11.2021" width="100%" height="130px" style="border-radius: 50%;">
-                </div>
-            
-                <div class="col-lg-8 col-md-8 col-8">
-                    <img src="https://meta-secure.com/HnbumuNursing/ContentTest/images/logo_full_Login.png" alt="Logo" style="display:inline-block;" width="100%" height="130px">
-                </div>
-           
+        <div class="row pt-4">
             <div class="col-lg-2 col-md-2 col-2">
-                 <img src="https://cdn.digitalindiacorporation.in/wp-content/themes/di-child/assets/images/digital-india.svg.gzip" alt="Logo" class="" style="display:inline-block;" width="100%" height="130px">
+                <img decoding="async" class="" src="https://cdnbbsr.s3waas.gov.in/s3978d76676f5e7918f81d28e7d092ca0d/uploads/2021/11/2021111152.jpeg" alt="approvedphoto11.11.2021" width="100%" height="130px" style="border-radius: 50%;">
             </div>
-           
-          </div>
-    </div>
-<div class="container pt-4">
-    <div class="main-container text-center">
-        <h1 class="convocation-title">7th CONVOCATION</h1>
-        <h2 class="date-title">Wednesday 26th March 2025</h2>
-        <h3 class="event-title">Degree Data Uploading On</h3>
-        <h3 class="event-title">Digilocker</h3>
-        <h4 class="by-title">By</h4>
-        <h2 class="name-title">LT GEN GURMIT SINGH</h2>
-        <h6 class="designation-title">
-            PVSM, UYSM, AVSM, VSM (RETD) <br>
-            HON'BLE GOVERNOR OF UTTARAKHAND <br>
-            &amp; CHANCELLOR OF UNIVERSITY
-        </h6>
-    </div>
-    <br>
-   <br>
-
-       <div class="box-container" id="boxContainer" style="margin-top: -3.75rem; position: relative; top: -1.25rem; display: flex; justify-content: center; align-items: center; gap: 10rem; padding: 0 3.125rem;">
-        <!-- Left Box -->
-        <div class="box" id="uploadBox" style="margin-right: auto;">
-            <div class="title">Degree Data</div>
-            <label class="upload-icon" for="fileInput">📂</label>
-            <input type="file" id="fileInput" class="file-input">
-        </div>
-
-        <!-- Animation Path -->
-        <svg id="animatedLine" class="line-container" width="31.25rem" height="12.5rem" style="position: absolute; left: 50%; transform: translateX(-50%);">
-            <path id="arcPath" d="M 6.25rem 6.25rem Q 15.625rem -3.125rem, 25rem 6.25rem" stroke="green" stroke-width="3" fill="transparent"></path>
-            <text id="movingFile" font-size="1.875rem">
-                📂
-                <animateMotion id="motionAnim" begin="click" dur="5s" repeatCount="1" fill="freeze" keyTimes="0; 0.3; 0.6; 1" values="0%; 30%; 60%; 100%" keySplines="0.3 0.1 0.7 1; 0.3 0.1 0.7 1; 0.3 0.1 0.7 1" calcMode="spline">
-                    <mpath href="#arcPath"></mpath>
-                </animateMotion>
-            </text>
-        </svg>
-
-        <!-- Right Box -->
-        <div class="box" id="digiLockerBox" style="margin-left: auto;">
-            <img src="./Digilocker.png" alt="DigiLocker Image">
+            <div class="col-lg-8 col-md-8 col-8">
+                <img src="https://meta-secure.com/HnbumuNursing/ContentTest/images/logo_full_Login.png" alt="Logo" style="display:inline-block;" width="100%" height="130px">
+            </div>
+            <div class="col-lg-2 col-md-2 col-2">
+                <img src="https://cdn.digitalindiacorporation.in/wp-content/themes/di-child/assets/images/digital-india.svg.gzip" alt="Logo" class="" style="display:inline-block;" width="100%" height="130px">
+            </div>
         </div>
     </div>
 
-    <!-- Popup Message -->
-    <div id="popupMessage" style="position: fixed; bottom: 10rem; left: 50%; transform: translateX(-50%); color: green; font-size: 1.5rem; font-weight: bold; display: none;">
-        Data Successfully Uploaded On Digilocker
+    <div class="container pt-4">
+        <div class="main-container text-center">
+            <h1 class="convocation-title">7th CONVOCATION</h1>
+            <h2 class="date-title">Wednesday 26th March 2025</h2>
+            <h3 class="event-title">Degree Data Uploading On</h3>
+            <h3 class="event-title">Digilocker</h3>
+            <h4 class="by-title">By</h4>
+            <h2 class="name-title">LT GEN GURMIT SINGH</h2>
+            <h6 class="designation-title">
+                PVSM, UYSM, AVSM, VSM (RETD) <br>
+                HON'BLE GOVERNOR OF UTTARAKHAND <br>
+                &amp; CHANCELLOR OF UNIVERSITY
+            </h6>
+        </div>
+
+        <div class="box-container" id="boxContainer">
+            <div class="box" id="uploadBox">
+                <div class="title">Degree Data</div>
+                <label class="upload-icon" for="fileInput">📂</label>
+                <input type="file" id="fileInput" class="file-input">
+            </div>
+
+            <svg id="animatedLine" class="line-container" width="500" height="200">
+                <path id="arcPath" d="M 100 100 Q 250 -50, 400 100" stroke="green" stroke-width="3" fill="transparent"></path>
+                <text id="movingFile" font-size="30">
+                    📂
+                    <animateMotion id="motionAnim" begin="click" dur="5s" repeatCount="1" fill="freeze" keyTimes="0; 0.3; 0.6; 1" values="0%; 30%; 60%; 100%" keySplines="0.3 0.1 0.7 1; 0.3 0.1 0.7 1; 0.3 0.1 0.7 1" calcMode="spline">
+                        <mpath href="#arcPath"></mpath>
+                    </animateMotion>
+                </text>
+            </svg>
+
+            <div class="box" id="digiLockerBox">
+                <img src="./Digilocker.png" alt="DigiLocker Image">
+            </div>
+        </div>
+
+        <div id="popupMessage">
+            Data Successfully Uploaded On Digilocker
+        </div>
+
+        <button class="submit-btn" id="submitBtn">Upload Data</button>
     </div>
 
-    <!-- Submit Button -->
-    <button class="submit-btn" id="submitBtn" style="margin-top: -3.5rem; display: block; margin-left: auto; margin-right: auto;">Upload Data</button>
-</div>
-   
-   
-    <!-- </div> -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1"></script>
 
@@ -436,33 +436,26 @@
             let popup = document.getElementById("popupMessage");
             let movingDot = document.getElementById("movingFile");
             let animatedLine = document.getElementById("animatedLine");
-            let header = document.querySelector(".header"); 
+            let uploadBox = document.getElementById("uploadBox");
+            let digiLockerBox = document.getElementById("digiLockerBox");
+            let submitBtn = document.getElementById("submitBtn");
 
             animatedLine.style.display = "block";
-            motionAnim.beginElement();
+            document.getElementById("motionAnim").beginElement();
 
             setTimeout(() => {
                 animatedLine.style.display = "none";
                 movingDot.style.display = "none";
                 popup.style.display = "block";
-                digiLockerBox.classList.add("hidden");
                 uploadBox.classList.add("hidden");
+                digiLockerBox.classList.add("hidden");
                 submitBtn.classList.add("hidden");
                 createExplosions();
-                        header.style.transform = "translateY(-2cm)";
-
             }, 5000);
         });
 
         function createExplosions() {
             for (let i = 0; i < 30; i++) {
-                //let balloon = document.createElement("div");
-                //balloon.className = "balloon";
-                //balloon.style.left = Math.random() * window.innerWidth + "px";
-                //balloon.style.bottom = "-50px";
-                //balloon.style.animationDelay = Math.random() * 2 + "s";
-                //document.body.appendChild(balloon);
-
                 let star = document.createElement("div");
                 star.className = "star";
                 star.innerHTML = "★";
@@ -500,5 +493,4 @@
         }
     </script>
 </body>
-
-  </html>
+</html>
