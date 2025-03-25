@@ -65,7 +65,7 @@
         gap: 25px;
     }
     
-   /* .box-container {
+    .box-container {
         display: flex;
         justify-content: center;
         gap: 40px;
@@ -90,29 +90,8 @@
         box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3), inset -5px -5px 10px rgba(255, 255, 255, 0.5);
         border-radius: 20px;
         margin: 10px;
-    } */
-        .box-container {
-    margin-top: -50px; /* Moves the whole container up */
-    gap: 300px; /* Increases the gap between boxes */
-    margin-bottom: 50px; /* Adds space below the container */
-}
-
-.line-container {
-    top: 40%; /* Adjusts the animation path position */
-}
-
-@media (max-width: 768px) {
-    .box-container {
-        gap: 150px; /* Smaller gap for tablets */
-    }
-}
-
-@media (max-width: 480px) {
-    .box-container {
-        gap: 80px; /* Even smaller gap for mobile */
-        margin-top: -30px;
-    }
-}
+    } 
+      
     
     .submit-btn {
         background: #28a745;
@@ -412,8 +391,8 @@
     </div>
     <br>
    <br>
-    <div class="box-container" id="boxContainer">
-        <div class="box" id="uploadBox">
+<div class="box-container" id="boxContainer" style="margin-top: -50px; position: relative; top: -20px;">
+    <div class="box" id="uploadBox" style="margin-right: auto; margin-left: 50px;">
             <div class="title">Degree Data</div>
             <label class="upload-icon" for="fileInput">📂</label>
             <input type="file" id="fileInput" class="file-input">
@@ -431,7 +410,7 @@
             </text>
         </svg>
 
-        <div class="box" id="digiLockerBox">
+    <div class="box" id="digiLockerBox" style="margin-left: auto; margin-right: 50px;">
             <img src="./Digilocker.png" alt="DigiLocker Image">
         </div>
         <div class="box-container" id="popupMessage">Data Successfully Uploded On Digilocker</div>
