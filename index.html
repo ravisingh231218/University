@@ -24,18 +24,18 @@
             height: auto;
         }
 
-         .line-container {
-        position: absolute;
-        width: 80%;
-        max-width: 500px;
-        height: 180px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        display: none;
-        z-index: 10;
-    }
+       .line-container {
+    position: absolute;
+    width: 80%;
+    max-width: 500px;
+    height: 180px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 10;
+    pointer-events: none;
+}
     
     .moving-dot {
         fill: red;
@@ -343,15 +343,15 @@
         </div>
 
         
-        <svg id="animatedLine" class="line-container" width="500" height="200" style="position: absolute; left: 50%; transform: translateX(-50%);">
-        <path id="arcPath" d="M 100 100 Q 250 -50, 400 100" stroke="green" stroke-width="3" fill="transparent"></path>
-        <text id="movingFile" font-size="30">
-            📂
-            <animateMotion id="motionAnim" begin="click" dur="5s" repeatCount="1" fill="freeze" keyTimes="0; 0.3; 0.6; 1" values="0%; 30%; 60%; 100%" keySplines="0.3 0.1 0.7 1; 0.3 0.1 0.7 1; 0.3 0.1 0.7 1" calcMode="spline">
-                <mpath href="#arcPath"></mpath>
-            </animateMotion>
-        </text>
-    </svg>
+       <svg id="animatedLine" class="line-container" viewBox="0 0 500 200" preserveAspectRatio="xMidYMid meet">
+    <path id="arcPath" d="M 50 100 Q 250 0, 450 100" stroke="green" stroke-width="3" fill="transparent"></path>
+    <text id="movingFile" font-size="30" x="0" y="0">
+        📂
+        <animateMotion id="motionAnim" begin="indefinite" dur="5s" repeatCount="1" fill="freeze" keyTimes="0; 0.3; 0.6; 1" values="0%; 30%; 60%; 100%" keySplines="0.3 0.1 0.7 1; 0.3 0.1 0.7 1; 0.3 0.1 0.7 1" calcMode="spline">
+            <mpath href="#arcPath"></mpath>
+        </animateMotion>
+    </text>
+</svg>
 
         <div class="box" id="digiLockerBox">
             <img src="./Digilocker.png" alt="DigiLocker Image">
